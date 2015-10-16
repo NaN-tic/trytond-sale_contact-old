@@ -1,0 +1,7 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:sale.sale,contact_address:"
+msgid "Contact Address"
+msgstr "Adreça de contacte"
