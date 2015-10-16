@@ -21,15 +21,13 @@ class Sale:
         domain=[('party', '=', Eval('party'))])
 
     def on_change_party(self):
-        changes = super(Sale, self).on_change_party()
+        super(Sale, self).on_change_party()
 
-        changes['contact_address'] = None
+        self.contact_address = None
         if self.party:
             contact_address = self.party.address_get(type='contact')
             if contact_address:
-                changes['contact_address'] = contact_address.id
-                changes['contact_address.rec_name'] = contact_address.rec_name
-        return changes
+                self.contact_address = contact_address
 
     def _get_invoice_sale(self, invoice_type):
         invoice = super(Sale, self)._get_invoice_sale(invoice_type)
