@@ -29,8 +29,8 @@ class Sale:
             if contact_address:
                 self.contact_address = contact_address
 
-    def _get_invoice_sale(self, invoice_type):
-        invoice = super(Sale, self)._get_invoice_sale(invoice_type)
+    def _get_invoice_sale(self):
+        invoice = super(Sale, self)._get_invoice_sale()
 
         if self.contact_address:
             invoice.contact_address = self.contact_address
