@@ -13,8 +13,7 @@ _STATES = {
 _DEPENDS = ['state']
 
 
-class Sale:
-    __metaclass__ = PoolMeta
+class Sale(metaclass=PoolMeta):
     __name__ = 'sale.sale'
     contact_address = fields.Many2One('party.address', 'Contact Address',
         states=_STATES, depends=['state', 'party'],
@@ -22,7 +21,6 @@ class Sale:
 
     def on_change_party(self):
         super(Sale, self).on_change_party()
-
         self.contact_address = None
         if self.party:
             contact_address = self.party.address_get(type='contact')
